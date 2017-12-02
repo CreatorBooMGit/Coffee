@@ -12,7 +12,7 @@ ApplicationWindow {
         id: gridView1
         anchors.fill: parent
 
-        property int countInRow: 6
+        property int countInRow: 4
 
         cellWidth: width / countInRow
         cellHeight: cellWidth
@@ -98,58 +98,10 @@ ApplicationWindow {
             }
         }
 
-        delegate: Item {
+        delegate: GoodItem
+        {
             width: gridView1.cellWidth
             height: gridView1.cellHeight
-
-            Rectangle {
-                anchors {
-                    top: parent.top;
-                    bottom: parent.bottom;
-                    right: parent.right;
-                    left: parent.left;
-                    topMargin: 5;
-                    bottomMargin: 5;
-                    leftMargin: 5;
-                    rightMargin: 5;
-                }
-
-                border.color: "#000000"
-                border.width: 1
-                radius: 10
-
-                Rectangle {
-                    id: itemImage
-//                    width: parent.parent.width - 30
-//                    height: parent.parent.height - 30
-
-                    anchors {
-                        top: parent.top
-                        topMargin: 10
-                        bottom: itemText.top
-                        bottomMargin: 5
-                        horizontalCenter: parent.horizontalCenter
-                    }
-
-                    width: height
-                    radius: 5
-
-                    color: colorCode
-                }
-
-                Text {
-                    id: itemText
-
-                    height: 20
-                    anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 5
-                    anchors.horizontalCenter: parent.horizontalCenter
-
-                    text: "goodName"
-                    font.pixelSize: 16
-                }
-            }
-
         }
     }
 }
