@@ -1,11 +1,11 @@
-#include "GoodsTableModel.h"
+//#include "GoodsTableModel.h"
 
-GoodsTableModel::GoodsTableModel(QObject *parent)
-{
+//GoodsTableModel::GoodsTableModel(QObject *parent)
+//{
 
-}
+//}
 
-GoodsTableModel::~GoodsTableModel()
-{
+//GoodsTableModel::~GoodsTableModel()
+//{
 
-}
+//}
