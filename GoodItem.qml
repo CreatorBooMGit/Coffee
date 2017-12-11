@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import com.coffee.main 1.0
 
 Item {
     Rectangle {
@@ -33,7 +34,7 @@ Item {
             width: height
             radius: 5
 
-            color: colorCode
+            color: "red"
         }
 
         Text {
@@ -44,7 +45,7 @@ Item {
             anchors.bottomMargin: 5
             anchors.horizontalCenter: parent.horizontalCenter
 
-            text: "goodName"
+            text: name
             font.pixelSize: 16
         }
     }
