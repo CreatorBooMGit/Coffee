@@ -16,3 +16,11 @@ void CoffeeVisual::test()
 {
     qDebug() << "button clicked";
 }
+
+bool CoffeeVisual::singIn(QString login, QString password)
+{
+    if(login.isEmpty())
+        return false;
+    else
+        return true;
+}

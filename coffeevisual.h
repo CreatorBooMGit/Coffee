@@ -12,6 +12,7 @@ public:
 
 public slots:
     void test();
+    bool singIn(QString login, QString password);
 };
 
 #endif // COFFEEVISUAL_H

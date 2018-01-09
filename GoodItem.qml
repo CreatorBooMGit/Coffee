@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import com.coffee.main 1.0
+import "qrc:/goodItem.js" as GoodItemLogic
 
 Item {
     Rectangle {
@@ -18,10 +19,27 @@ Item {
         border.width: 1
         radius: 10
 
-        Rectangle {
+        //        Rectangle {
+        //            id: itemImage
+        //            //                    width: parent.parent.width - 30
+        //            //                    height: parent.parent.height - 30
+
+        //            anchors {
+        //                top: parent.top
+        //                topMargin: 10
+        //                bottom: itemText.top
+        //                bottomMargin: 5
+        //                horizontalCenter: parent.horizontalCenter
+        //            }
+
+        //            width: height
+        //            radius: 5
+
+        //            color: "red"
+        //        }
+
+        Image {
             id: itemImage
-            //                    width: parent.parent.width - 30
-            //                    height: parent.parent.height - 30
 
             anchors {
                 top: parent.top
@@ -32,9 +50,8 @@ Item {
             }
 
             width: height
-            radius: 5
-
-            color: "red"
+            source: image_name
+            fillMode: Image.PreserveAspectFit
         }
 
         Text {
@@ -47,6 +64,14 @@ Item {
 
             text: name
             font.pixelSize: 16
+        }
+    }
+
+    MouseArea {
+        anchors.fill: parent
+
+        onClicked: {
+            GoodsTableModel.append(id);
         }
     }
 

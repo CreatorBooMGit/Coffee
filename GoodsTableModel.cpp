@@ -1,10 +1,12 @@
 #include "GoodsTableModel.h"
+#include <QCoreApplication>
 
 GoodsTableModel::GoodsTableModel(QObject *parent) : QAbstractListModel(parent)
 {
-    goodsList.append({1, 1, "name1", 10.00, 12.00, "icon.name"});
-    goodsList.append({1, 1, "name1", 10.00, 12.00, "icon.name"});
-    goodsList.append({1, 1, "name1", 10.00, 12.00, "icon.name"});
+    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/1.PNG"});
+    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/img003.jpg"});
+    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/img004.jpg"});
+    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/IMG_20171029_125820.jpg"});
 }
 
 //GoodsTableModel::GoodsTableModel(QSqlQuery *p_query, QObject *parent) : QAbstractListModel(parent)

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/js"/>
+    <qresource prefix="/">
+        <file>goodItem.js</file>
+    </qresource>
+</RCC>

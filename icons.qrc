@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>Addons/Icons/next.svg</file>
+        <file>Addons/Icons/menu.svg</file>
+    </qresource>
+</RCC>

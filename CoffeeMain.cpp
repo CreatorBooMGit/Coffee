@@ -9,12 +9,11 @@ CoffeeMain::CoffeeMain()
     pr_cacheImagesDirectory = QString("%1/cache/images")
             .arg(QCoreApplication::applicationDirPath());
 
-    QDir *dir = new QDir;
-    dir->setCurrent(pr_cacheImagesDirectory);
-    if(dir->exists())
-        dir->mkdir(pr_cacheImagesDirectory);
-
-    delete dir;
+    if(!QDir(QString("%1/cache").arg(QCoreApplication::applicationDirPath())).exists())
+    {
+        QDir().mkdir(QString("%1/cache").arg(QCoreApplication::applicationDirPath()));
+        QDir().mkdir(QString("%1/cache/images").arg(QCoreApplication::applicationDirPath()));
+    }
 
     database = QSqlDatabase::addDatabase("QODBC3");
     database.setDatabaseName("DRIVER={SQL Server}; SERVER=DESKTOP-6NSSRH1\\SQLEXPRESS;DATABASE=coffee;Trusted_Connection=yes");
