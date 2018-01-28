@@ -71,7 +71,6 @@ Item {
         anchors.fill: parent
 
         onClicked: {
-            GoodsTableModel.append(id);
         }
     }
 

@@ -4,7 +4,7 @@
 
 CoffeeVisual::CoffeeVisual(QObject *parent) : QObject(parent)
 {
-    CoffeeMain coffeeMain;
+    coffeeMain = new CoffeeMain();
 }
 
 CoffeeVisual::~CoffeeVisual()
@@ -23,4 +23,9 @@ bool CoffeeVisual::singIn(QString login, QString password)
         return false;
     else
         return true;
+}
+
+QSqlQuery *CoffeeVisual::getQuery()
+{
+    return coffeeMain->getQuery();
 }

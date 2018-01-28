@@ -1,33 +1,34 @@
 #include "GoodsTableModel.h"
 #include <QCoreApplication>
+#include <QDebug>
+
+//GoodsTableModel::GoodsTableModel(QObject *parent) : QAbstractListModel(parent)
+//{
+//    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/1.PNG"});
+//    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/img003.jpg"});
+//    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/img004.jpg"});
+//    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/IMG_20171029_125820.jpg"});
+//}
 
 GoodsTableModel::GoodsTableModel(QObject *parent) : QAbstractListModel(parent)
 {
-    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/1.PNG"});
-    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/img003.jpg"});
-    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/img004.jpg"});
-    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/IMG_20171029_125820.jpg"});
+    query.prepare("SELECT goods.id, goods.goodType_id, goods.name, goods.price, addons.filename + '.' + addons.extension as filenameAddon \n"
+                  "FROM goods \n"
+                  "LEFT JOIN addons ON goods.addon_id = addons.id");
+    query.exec();
+
+    while(query.next())
+    {
+        append(query.value("id").toInt(),
+               query.value("goodType_id").toInt(),
+               query.value("name").toString(),
+               query.value("price").toInt(),
+               query.value("price").toInt() + query.value("price").toInt() * 0.2,
+               "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/" + query.value("filenameAddon").toString());
+
+        qDebug() << goodsList.last().image_name;
+    }
 }
-
-//GoodsTableModel::GoodsTableModel(QSqlQuery *p_query, QObject *parent) : QAbstractListModel(parent)
-//{
-//    query = p_query;
-
-//    goodsList.append({1, 1, "name1", 10.00, 12.00, "icon.name"});
-
-//    query->prepare("SELECT * FROM goods");
-//    query->exec();
-
-//    while(query->next())
-//    {
-//        append(query->value("id").toInt(),
-//               query->value("type").toInt(),
-//               query->value("name").toString(),
-//               query->value("price").toInt(),
-//               query->value("price").toInt() + query->value("price").toInt() * 0.2,
-//               query->value("icon").toInt());
-//    }
-//}
 
 GoodsTableModel::~GoodsTableModel()
 {

@@ -2,5 +2,7 @@
     <qresource prefix="/icons">
         <file>Addons/Icons/next.svg</file>
         <file>Addons/Icons/menu.svg</file>
+        <file>Addons/Icons/list.png</file>
+        <file>Addons/Icons/next.png</file>
     </qresource>
 </RCC>

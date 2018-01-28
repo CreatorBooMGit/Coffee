@@ -1,15 +1,18 @@
 #ifndef COFFEEMAIN_H
 #define COFFEEMAIN_H
 
+#include "GoodsTableModel.h"
+
 #include <QSqlDatabase>
 #include <QSqlQuery>
 
 class CoffeeMain
 {
 public:
-
     CoffeeMain();
     ~CoffeeMain();
+
+    QSqlQuery *getQuery();
 
 private:
     QSqlDatabase database;

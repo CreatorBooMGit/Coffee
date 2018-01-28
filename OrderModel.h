@@ -1,41 +1,18 @@
-#ifndef GOODSTABLE_H
-#define GOODSTABLE_H
+#ifndef ORDERMODEL_H
+#define ORDERMODEL_H
+
+#include "GoodsTableModel.h"
 
 #include <QAbstractListModel>
 #include <QSqlQuery>
 
-struct Good {
-    int id;
-    int type;
-    QString name;
 
-    double price;
-    double price_pdv;
-
-    QString image_name;
-};
-
-enum GoodRole {
-    IdRole,
-    TypeRole,
-    NameRole,
-    PriceRole,
-    Price_pdvRole,
-    Image_nameRole
-};
-
-
-class GoodsTableModel : public QAbstractListModel
+class OrderModel : public QAbstractItemModel
 {
     Q_OBJECT
-
 public:
-    GoodsTableModel(QObject *parent = nullptr);
-//    GoodsTableModel(QSqlQuery *p_query, QObject *parent = nullptr);
-    ~GoodsTableModel();
-
-
-    Q_ENUM(GoodRole)
+    OrderModel(QObject *parent = nullptr);
+    ~OrderModel();
 
     int rowCount(const QModelIndex & = QModelIndex()) const;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
@@ -53,5 +30,4 @@ private:
 };
 
 
-
-#endif // GOODSTABLE_H
+#endif // ORDERMODEL_H

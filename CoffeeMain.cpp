@@ -32,6 +32,11 @@ CoffeeMain::~CoffeeMain()
     database.close();
 }
 
+QSqlQuery *CoffeeMain::getQuery()
+{
+    return query;
+}
+
 bool CoffeeMain::loadCacheImages()
 {
     bool tResult = false;

@@ -1,6 +1,9 @@
 #ifndef COFFEEVISUAL_H
 #define COFFEEVISUAL_H
 
+#include "CoffeeMain.h"
+#include "GoodsTableModel.h"
+
 #include <QObject>
 
 class CoffeeVisual : public QObject
@@ -13,6 +16,10 @@ public:
 public slots:
     void test();
     bool singIn(QString login, QString password);
+    QSqlQuery *getQuery();
+
+private:
+    CoffeeMain *coffeeMain;
 };
 
 #endif // COFFEEVISUAL_H

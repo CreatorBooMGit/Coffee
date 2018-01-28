@@ -33,12 +33,14 @@ Frame {
             width: 32
             height: 32
 
-            source: "icons/Addons/Icons/menu.svg"
+            source: "icons/Addons/Icons/list.png"
 
             MouseArea {
                 anchors.fill: parent
 
-                onClicked: drawer.open()
+                onClicked: {
+                    drawer.open()
+                }
             }
         }
     }
@@ -76,7 +78,7 @@ Frame {
                 width: 32
                 height: 32
 
-                source: "icons/Addons/Icons/next.svg"
+                source: "icons/Addons/Icons/next.png"
 
                 MouseArea {
                     anchors.fill: parent
@@ -183,9 +185,9 @@ Frame {
                 bottomMargin: 5
             }
 
-            color: "red"
-
             radius: 5
+            border.color: Material.color(Material.Grey)
+            border.width: 1
 
             ListView {
                 id: backetView

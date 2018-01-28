@@ -15,7 +15,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     coffeevisual.cpp \
     CoffeeMain.cpp \
-    GoodsTableModel.cpp
+    GoodsTableModel.cpp \
+    OrderModel.cpp
 
 RESOURCES += qml.qrc \
     icons.qrc \
@@ -35,7 +36,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     coffeevisual.h \
     CoffeeMain.h \
-    GoodsTableModel.h
+    GoodsTableModel.h \
+    OrderModel.h
 
 DISTFILES += \
     GoodsTableModel.qml
