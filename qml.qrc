@@ -6,5 +6,8 @@
         <file>MenuItemDelegate.qml</file>
         <file>LoginPage.qml</file>
         <file>main.qml</file>
+        <file>Backet.qml</file>
+        <file>Order.qml</file>
+        <file>OrderPosition.qml</file>
     </qresource>
 </RCC>

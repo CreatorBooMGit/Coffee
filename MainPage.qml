@@ -189,12 +189,8 @@ Frame {
             border.color: Material.color(Material.Grey)
             border.width: 1
 
-            ListView {
-                id: backetView
-
-                anchors {
-                    fill: parent
-                }
+            Backet {
+                anchors.fill: parent
             }
         }
     }

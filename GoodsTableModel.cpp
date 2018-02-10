@@ -2,14 +2,6 @@
 #include <QCoreApplication>
 #include <QDebug>
 
-//GoodsTableModel::GoodsTableModel(QObject *parent) : QAbstractListModel(parent)
-//{
-//    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/1.PNG"});
-//    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/img003.jpg"});
-//    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/img004.jpg"});
-//    goodsList.append({1, 1, "name1", 10.00, 12.00, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/IMG_20171029_125820.jpg"});
-//}
-
 GoodsTableModel::GoodsTableModel(QObject *parent) : QAbstractListModel(parent)
 {
     query.prepare("SELECT goods.id, goods.goodType_id, goods.name, goods.price, addons.filename + '.' + addons.extension as filenameAddon \n"

@@ -2,5 +2,6 @@
     <qresource prefix="/js"/>
     <qresource prefix="/">
         <file>goodItem.js</file>
+        <file>order.js</file>
     </qresource>
 </RCC>
