@@ -3,5 +3,7 @@
     <qresource prefix="/">
         <file>goodItem.js</file>
         <file>order.js</file>
+        <file>parameters.js</file>
+        <file>basket.js</file>
     </qresource>
 </RCC>

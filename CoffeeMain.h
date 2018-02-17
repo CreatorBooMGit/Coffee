@@ -1,8 +1,6 @@
 #ifndef COFFEEMAIN_H
 #define COFFEEMAIN_H
 
-#include "GoodsTableModel.h"
-
 #include <QSqlDatabase>
 #include <QSqlQuery>
 

@@ -20,6 +20,8 @@ GoodsTableModel::GoodsTableModel(QObject *parent) : QAbstractListModel(parent)
 
         qDebug() << goodsList.last().image_name;
     }
+
+//    append(1, 1, "Good 1", 23.50, 23.50 * 1.2, "file:///" + QCoreApplication::applicationDirPath() +"/cache/images/" + "venski.png");
 }
 
 GoodsTableModel::~GoodsTableModel()

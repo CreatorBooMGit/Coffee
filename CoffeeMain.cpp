@@ -24,7 +24,7 @@ CoffeeMain::CoffeeMain()
 
     query = new QSqlQuery(database);
 
-    loadCacheImages();
+//    loadCacheImages();
 }
 
 CoffeeMain::~CoffeeMain()

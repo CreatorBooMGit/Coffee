@@ -1,6 +1,8 @@
 import QtQuick 2.0
 import com.coffee.main 1.0
 import "qrc:/goodItem.js" as GoodItemLogic
+import "qrc:/parameters.js" as Parameters
+import "qrc:/basket.js" as BasketLogic
 
 Item {
     Rectangle {
@@ -15,7 +17,7 @@ Item {
             rightMargin: 5;
         }
 
-        border.color: "#000000"
+        border.color: Parameters.GoodItemColor
         border.width: 1
         radius: 10
 
@@ -71,6 +73,7 @@ Item {
         anchors.fill: parent
 
         onClicked: {
+            BasketLogic.addGoodToActiveOrder()
         }
     }
 

@@ -1,5 +1,5 @@
-#ifndef GOODSTABLE_H
-#define GOODSTABLE_H
+#ifndef GOODSTABLEMODEL_H
+#define GOODSTABLEMODEL_H
 
 #include <QAbstractListModel>
 #include <QSqlQuery>
@@ -51,7 +51,5 @@ private:
 
     QSqlQuery query;
 };
-
-
 
 #endif // GOODSTABLE_H

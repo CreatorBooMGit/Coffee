@@ -173,7 +173,7 @@ Frame {
         }
 
         Rectangle {
-            id: backetViewBox
+            id: basketViewBox
 
             anchors {
                 top: parent.top
@@ -189,7 +189,7 @@ Frame {
             border.color: Material.color(Material.Grey)
             border.width: 1
 
-            Backet {
+            Basket {
                 anchors.fill: parent
             }
         }

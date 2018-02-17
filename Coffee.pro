@@ -16,7 +16,7 @@ SOURCES += main.cpp \
     coffeevisual.cpp \
     CoffeeMain.cpp \
     GoodsTableModel.cpp \
-    OrderModel.cpp
+    Order.cpp
 
 RESOURCES += qml.qrc \
     icons.qrc \
@@ -37,7 +37,7 @@ HEADERS += \
     coffeevisual.h \
     CoffeeMain.h \
     GoodsTableModel.h \
-    OrderModel.h
+    Order.h
 
 DISTFILES += \
     GoodsTableModel.qml

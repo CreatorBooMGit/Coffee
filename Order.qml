@@ -1,37 +1,52 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
+import com.coffee.main 1.0
 import QtQuick.Controls.Material 2.2
 import "qrc:/order.js" as OrderLogic
+import "qrc:/parameters.js" as Parameters
+import "qrc:/basket.js" as BasketLogic
 
 Item {
     id: order
     height: OrderLogic.calcHeight()
+
+    property bool active: false
 
     Component.onCompleted: {
         OrderLogic.setOrder(order)
         OrderLogic.setOrderPositionsList(orderPositionsList)
     }
 
+    function addOrderPosition() {
+        OrderLogic.addOrderPosition()
+    }
+
+    onActiveChanged: {
+        OrderLogic.changeOrderPositionActive(active)
+    }
+
+    MouseArea {
+        clip: false
+        anchors.fill: parent
+
+        onClicked: {
+            console.log(order.height)
+            BasketLogic.setActiveOrder(order)
+        }
+    }
+
     Rectangle {
         id: rectOrderTop
 
         height: 30
-        color: "#800000e9"
+        color: active ? Parameters.OrderActiveColor : Parameters.OrderColor
         z: 1
 
         anchors {
             left: parent.left
             top: parent.top
             right: parent.right
-        }
-
-        MouseArea {
-            anchors.fill: parent
-
-            onClicked: {
-                OrderLogic.addOrderPosition();
-            }
         }
 
         Text {
@@ -45,7 +60,7 @@ Item {
             }
 
             fontSizeMode: Text.FixedSize
-            font.pixelSize: 12
+            font.pixelSize: 16
             text: qsTr("№000000")
         }
 
@@ -84,7 +99,7 @@ Item {
         id: rectOrderBottom
 
         height: 20
-        color: "#800000e9"
+        color: active ? Parameters.OrderActiveColor : Parameters.OrderColor
         z: 1
 
         anchors {
@@ -122,5 +137,8 @@ Item {
         }
     }
 
+    OrderContent {
+        id: orderContent
+    }
 }
 
