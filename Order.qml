@@ -7,19 +7,24 @@ import "qrc:/order.js" as OrderLogic
 import "qrc:/parameters.js" as Parameters
 import "qrc:/basket.js" as BasketLogic
 
-Item {
+Rectangle {
     id: order
     height: OrderLogic.calcHeight()
 
     property bool active: false
+    property double sum: 0
+
+    anchors.left: parent.left
+    anchors.right: parent.right
 
     Component.onCompleted: {
         OrderLogic.setOrder(order)
         OrderLogic.setOrderPositionsList(orderPositionsList)
+        OrderLogic.setOrderContent(orderContent)
     }
 
-    function addOrderPosition() {
-        OrderLogic.addOrderPosition()
+    function addOrderPosition(value) {
+        OrderLogic.addOrderPosition(value)
     }
 
     onActiveChanged: {
@@ -49,20 +54,20 @@ Item {
             right: parent.right
         }
 
-        Text {
-            id: text2
-            y: 6
+//        Text {
+//            id: orderNumber
+//            y: 6
 
-            anchors {
-                verticalCenter: parent.verticalCenter
-                left: parent.left
-                leftMargin: 5
-            }
+//            anchors {
+//                verticalCenter: parent.verticalCenter
+//                left: parent.left
+//                leftMargin: 5
+//            }
 
-            fontSizeMode: Text.FixedSize
-            font.pixelSize: 16
-            text: qsTr("№000000")
-        }
+//            fontSizeMode: Text.FixedSize
+//            font.pixelSize: 16
+//            text: OrderNumberText
+//        }
 
         ColumnLayout {
             id: columnLayout
@@ -74,19 +79,17 @@ Item {
             spacing: 0
 
             Text {
-                id: text3
-                text: qsTr("01/01/2018")
+                id: orderDate
+                text: orderContent.getDate()
                 Layout.fillWidth: false
                 Layout.alignment: Qt.AlignRight | Qt.AlignBottom
                 visible: true
             }
 
             Text {
-                id: text4
-                x: 0
-                y: 0
+                id: orderTime
 
-                text: qsTr("00:00")
+                text: orderContent.getTime()
                 Layout.rowSpan: 1
                 Layout.alignment: Qt.AlignRight | Qt.AlignTop
 
@@ -98,7 +101,7 @@ Item {
     Rectangle {
         id: rectOrderBottom
 
-        height: 20
+        height: 30
         color: active ? Parameters.OrderActiveColor : Parameters.OrderColor
         z: 1
 
@@ -109,19 +112,52 @@ Item {
         }
 
         Text {
-            id: text1
+            id: rectOrderBottomSumLabel
+
+            width: 60
 
             anchors {
-                left: parent.left
-                leftMargin: 5
-                bottom: parent.bottom
-                bottomMargin: 3
-                top: parent.top
-                topMargin: 3
+                bottom: rectOrderBottomSum.bottom
+
+                right: rectOrderBottomSum.left
+                rightMargin: 5
             }
 
-            font.pixelSize: 12
-            text: qsTr("Text")
+            font.pixelSize: 16
+            text: qsTr("Sum:")
+        }
+
+        Text {
+            id: rectOrderBottomSum
+
+            anchors {
+                bottom: parent.bottom
+                bottomMargin: 3
+
+                right: parent.right
+                rightMargin: 10
+            }
+
+            font.pixelSize: 16
+            text: sum
+        }
+
+        Text {
+            id: rectOrderBottomSumDiscount
+
+            anchors {
+                bottom: rectOrderBottomSum.top
+                right: rectOrderBottomSum.right
+
+                bottomMargin: -3
+                rightMargin: -5
+            }
+
+            visible: orderContent.getDiscount()
+
+            color: "#717171"
+            font.pixelSize: 8
+            text: (orderContent.getDiscount() - orderContent.getSumPDV() * orderContent.getDiscount()) + "%"
         }
     }
 

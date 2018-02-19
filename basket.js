@@ -1,8 +1,10 @@
 .pragma library
 
+.import QtQuick 2.7 as QML
+
 var activeOrder = null
 
-var basketModel = null
+var basketList = null
 
 function setActiveOrder(value) {
     if(activeOrder !== null)
@@ -20,15 +22,21 @@ function clearActiveOrder() {
     setActiveOrder(null)
 }
 
-function addGoodToActiveOrder() {
+function addGoodToActiveOrder(id) {
     if(activeOrder === null)
     {
-        basketModel.append({'active': 'true'})
+        var newOrderComponent = Qt.createComponent("qrc:/Order.qml")
+        if (newOrderComponent.status === QML.Component.Ready) {
+            var newOrder = newOrderComponent.createObject(basketList)
+            newOrder.active = true
+
+            activeOrder = newOrder
+        }
     }
 
-    activeOrder.addOrderPosition()
+    activeOrder.addOrderPosition(id)
 }
 
-function setBasketModel(value) {
-    basketModel = value
+function setBasketList(value) {
+    basketList = value
 }

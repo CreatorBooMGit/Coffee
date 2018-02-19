@@ -4,6 +4,7 @@
 #include "GoodsTableModel.h"
 
 #include <QAbstractListModel>
+#include <QDateTime>
 #include <QSqlQuery>
 
 
@@ -13,15 +14,27 @@ class OrderContent : public QObject
 public:
     OrderContent(QObject *parent = nullptr);
     ~OrderContent();
-    Q_INVOKABLE QVariantMap get(int row) const;
-    Q_INVOKABLE void append(const int &id);
-    Q_INVOKABLE void set(int row, const int &id);
-    Q_INVOKABLE void remove(int row);
+
+    Q_INVOKABLE QVariantMap getPosition(int row) const;
+    Q_INVOKABLE QVariantMap appendPosition(const int &id);
+    Q_INVOKABLE void removePosition(int row);
+
+    Q_INVOKABLE QString getDate() const;
+    Q_INVOKABLE QString getTime() const;
+
+    Q_INVOKABLE double getSum() const;
+    Q_INVOKABLE double getSumDiscount() const;
+    Q_INVOKABLE double getSumPDV() const;
+    Q_INVOKABLE double getSumPDVDiscount() const;
+
+    Q_INVOKABLE double getDiscount() const;
 
 private:
-    QList<Good> goodsList;
-
     QSqlQuery query;
+
+    QList<Good> goodsList;
+    QDateTime dateTime;
+    double discount;
 };
 
 

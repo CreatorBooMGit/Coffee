@@ -4,7 +4,10 @@ import "qrc:/parameters.js" as Parameters
 
 Rectangle {
     id: rectangle
+
     property bool parentActive: false
+    property string goodPositionNameValue: ""
+    property string goodPositionPriceValue: ""
 
     anchors.left: parent.left
     anchors.right: parent.right
@@ -15,7 +18,7 @@ Rectangle {
     Text {
         id: goodPositionName
         y: 8
-        text: qsTr("Good Name")
+        text: goodPositionNameValue
         verticalAlignment: Text.AlignVCenter
         anchors.left: parent.left
         anchors.leftMargin: 10
@@ -32,7 +35,7 @@ Rectangle {
             verticalCenter: parent.verticalCenter
         }
 
-        text: qsTr("0.00")
+        text: goodPositionPriceValue
         font.pixelSize: 16
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignRight

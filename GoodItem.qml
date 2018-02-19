@@ -73,7 +73,8 @@ Item {
         anchors.fill: parent
 
         onClicked: {
-            BasketLogic.addGoodToActiveOrder()
+            console.log(id)
+            BasketLogic.addGoodToActiveOrder(id)
         }
     }
 
