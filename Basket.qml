@@ -22,14 +22,15 @@ Rectangle {
             Component.onCompleted: {
                 BasketLogic.setBasketList(basketList)
             }
-        }
-    }
 
-    MouseArea {
-        anchors.fill: parent
+            Order {
 
-        onClicked: {
-            console.log("clicked")
+            }
+
+            Order {
+
+            }
         }
+
     }
 }

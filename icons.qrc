@@ -4,5 +4,6 @@
         <file>Addons/Icons/menu.svg</file>
         <file>Addons/Icons/list.png</file>
         <file>Addons/Icons/next.png</file>
+        <file>Addons/Icons/Close-2-icon.png</file>
     </qresource>
 </RCC>

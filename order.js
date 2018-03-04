@@ -1,4 +1,5 @@
 .import QtQuick 2.7 as QML
+.import "basket.js" as Basket
 
 var heightOrderTop = 30;
 var heightOrderBottom = 30;
@@ -54,6 +55,7 @@ function addOrderPosition(id)
 
         var positionInfo = orderContent.appendPosition(id)
 
+        childRec.goodPositionId = positionInfo.index
         childRec.goodPositionNameValue = positionInfo.name
         childRec.goodPositionPriceValue = positionInfo.price_pdv
 
@@ -63,9 +65,15 @@ function addOrderPosition(id)
 
         changeOrderHeight();
         orderPositionsArray.push(childRec);
+        Basket.orderPositionsArray.push(childRec);
     }
 }
 
+function deleteOrderPosition(id) {
+    orderPositionsArray.splice(id, 1)
+}
+
+// Chande active in order
 function changeOrderPositionActive(value) {
     for(var i = 0; i < orderPositionsArray.length; i++)
         orderPositionsArray[i].parentActive = value

@@ -5,6 +5,7 @@
 var activeOrder = null
 
 var basketList = null
+var orderPositionsArray = []
 
 function setActiveOrder(value) {
     if(activeOrder !== null)
@@ -39,4 +40,10 @@ function addGoodToActiveOrder(id) {
 
 function setBasketList(value) {
     basketList = value
+}
+
+function restoreDefaultOrderPosition(position)
+{
+    for(var i = 0; i < orderPositionsArray.length; i++)
+        orderPositionsArray[i].positionOrderFocusOff(position)
 }

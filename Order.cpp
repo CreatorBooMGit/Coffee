@@ -15,7 +15,8 @@ OrderContent::~OrderContent()
 QVariantMap OrderContent::getPosition(int row) const
 {
     const Good good = goodsList.value(row);
-    return {{"id", good.id},
+    return {{"index", row},
+        {"id", good.id},
         {"type", good.type},
         {"name", good.name},
         {"price", good.price},
